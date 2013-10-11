@@ -16,6 +16,7 @@
 	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/calendar.css" rel="stylesheet">
+	<link href="css/pygments-manni.css" rel="stylesheet">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -73,9 +74,11 @@
 			<h2>
 				Schedule
 			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
+			<div class="progress">
+			  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+				<span class="sr-only">60% Complete</span>
+			  </div>
+			</div>
 			<p>
 				<a class="btn" href="#">View details »</a>
 			</p>
@@ -85,13 +88,13 @@
 				Calendar
 			</h2>
 			<div id="calendar" class="cal-context" style="width: 100%;"><div style="position: relative" class="cal-week-box">
-	<div class="cal-offset1 cal-column"></div>
-	<div class="cal-offset2 cal-column"></div>
-	<div class="cal-offset3 cal-column"></div>
-	<div class="cal-offset4 cal-column"></div>
-	<div class="cal-offset5 cal-column"></div>
-	<div class="cal-offset6 cal-column"></div>
-	<div class="cal-row-fluid cal-row-head">
+				<div class="cal-offset1 cal-column"></div>
+				<div class="cal-offset2 cal-column"></div>
+				<div class="cal-offset3 cal-column"></div>
+				<div class="cal-offset4 cal-column"></div>
+				<div class="cal-offset5 cal-column"></div>
+				<div class="cal-offset6 cal-column"></div>
+				<div class="cal-row-fluid cal-row-head">
 		
 			<div class="cal-cell1 cal-day-weekend" data-toggle="tooltip" title="" data-original-title="">Sunday<br>
 				<small><span data-cal-date="2013-03-10" data-cal-view="day">10 Mar</span></small>
