@@ -42,6 +42,8 @@
 </script>
   <script type="text/javascript" src="js/jquery-ui.min.js">
 </script>
+  <script type="text/javascript" src="js/functions.js">
+</script>
 </head>
 
 <body>
@@ -52,17 +54,17 @@
           <div class="navbar-inner">
             <div class="container-fluid">
               <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class=
-              "btn btn-navbar"></a> <a href="#" class="brand">WaterNet</a>
+              "btn btn-navbar"></a> <a href="#" onclick="setTab('overview')" class="brand">WaterNet</a>
 
               <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav">
-                  <li class="active"><a href="#">Overview</a></li>
+                  <li id="menu-overview" class="active"><a href="#" onclick="setTab('overview');">Overview</a></li>
 
-                  <li><a href="#">Programs</a></li>
+                  <li id="menu-programs" ><a href="#" onclick="setTab('programs');">Programs</a></li>
 
-                  <li><a href="#">Zones</a></li>
+                  <li id="menu-zones" ><a href="#" onclick="setTab('zones');">Zones</a></li>
 
-                  <li><a href="#">Settings</a></li>
+                  <li id="menu-settings" ><a href="#" onclick="setTab('settings');">Settings</a></li>
                 </ul>
 
                 <div style="margin-left: 2em" class="nav pull-right">
@@ -75,7 +77,7 @@
       </div>
     </div>
 
-    <div id="overview" class="row-fluid">
+    <div id="overview" class="row-fluid wn-tab">
       <div class="span6">
         <h2>Schedule</h2>
 
@@ -89,7 +91,7 @@
         aria-valuemin="0" aria-valuemax="100" aria-valuenow="20">
           <div class="ui-progressbar-value ui-widget-header ui-corner-left" style=
           "width: 20%;"></div>
-        </div><a class="btn" href="#">View details &#187;</a>
+        </div><a class="btn" href="#" onclick="setTab('zones', 'zone1');">View details &#187;</a>
         <hr />
 
         <h3>Zone2</h3>
@@ -99,7 +101,7 @@
         aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
           <div class="ui-progressbar-value ui-widget-header ui-corner-left" style=
           "width: 75%;"></div>
-        </div><a class="btn" href="#">View details &#187;</a>
+        </div><a class="btn" href="#" onclick="setTab('zones', 'zone2');">View details &#187;</a>
       </div>
 
       <div class="span6">
@@ -210,7 +212,7 @@
     </div>
 
 	<!-- Programs Tab -->
-    <div id="programs" class="row-fluid hidden">
+    <div id="programs" class="row-fluid wn-tab hidden">
       <div class="span12">
         <h2>Schedule</h2>
 
@@ -224,21 +226,31 @@
 	</div>
 
 	<!-- Zones Tab -->
-    <div id="zones" class="row-fluid hidden">
-      <div class="span12">
-        <h2>Schedule</h2>
-
-        <div id="progressbar" class=
-        "ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar"
-        aria-valuemin="0" aria-valuemax="100" aria-valuenow="20">
-          <div class="ui-progressbar-value ui-widget-header ui-corner-left" style=
-          "width: 20%;"></div>
-        </div><a class="btn" href="#">View details &#187;</a>
-      </div>
+    <div id="zones" class="row-fluid wn-tab hidden">
+		<div class="span12">	
+			<h2 id="zone1">Zone1</h3>
+	
+			<div id="progressbar" class=
+			"ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar"
+			aria-valuemin="0" aria-valuemax="100" aria-valuenow="20">
+			<div class="ui-progressbar-value ui-widget-header ui-corner-left" style=
+			"width: 20%;"></div>
+			</div>
+			<hr />
+	
+			<h2 id="zone2">Zone2</h3>
+	
+			<div id="progressbar" class=
+			"ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar"
+			aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
+			<div class="ui-progressbar-value ui-widget-header ui-corner-left" style=
+			"width: 75%;"></div>
+			</div>
+		</div>		  
     </div>
 	
 	<!-- Settings Tab -->
-	<div id="settings" class="row-fluid hidden">
+	<div id="settings" class="row-fluid wn-tab hidden">
       <div class="span12">
         <h2>Schedule</h2>
 
