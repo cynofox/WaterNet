@@ -5,7 +5,7 @@ function setTab(tabName, hash) {
 		});			
 	$('.wn-tab').hide(200).addClass('hidden',
 		function() {
-			$('#'+tabName).show(200).removeClass('hidden',
+			$('#'+tabName).removeClass('hidden').show(200,
 			function() {
 				if(hash) {
 					scrollTo(hash);
@@ -15,8 +15,13 @@ function setTab(tabName, hash) {
 }
 
 function scrollTo(hash) {
-	location.hash = "#" + hash;
 	$(document.body).animate({
 		'scrollTop':   $('#' + hash).offset().top
-	}, 200);
+	}, 500);
+}
+
+function scrollToTop() {
+	$(document.body).animate({
+		'scrollTop':0
+	}, 500);
 }
