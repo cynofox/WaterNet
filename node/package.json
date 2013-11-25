@@ -1,0 +1,18 @@
+{
+  "name": "water-net-server",
+  "author": "Joshua Lloyd <j.nevercast@gmail.com> (http://nevercast.net)",
+  "contributors": [
+    "Rob Nairn <robnairn@gmail.com> (http://twocows.co.nz)"
+  ],
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "~3.4.4",
+    "twig": "~0.5.12",
+    "lodash": "~2.2.1",
+    "nstore": "~0.5.2"
+  }
+}

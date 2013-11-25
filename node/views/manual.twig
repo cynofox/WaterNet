@@ -1,0 +1,42 @@
+{% extends "layout.twig" %}
+{% block content %}
+			<div class="panel panel-default">
+				<form id="manualForm" name="manualForm" role="form" method="post" enctype="application/x-www-form-urlencoded">
+					<div class="panel-heading">
+						<h3 class="panel-title">Manual control</h3>
+					</div>
+					<div class="panel-body">
+						<label >Manual mode </label>
+						<div class="make-switch" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+							<input type="checkbox" id="manualModeOnOff">
+						</div>
+						<p>The Manual program allows you to run the system manually switching off all automatic programs. Just set the duration times on each one of the zones you are interested in running, turn it on. Each zone will run sequentally for the time specified then turn off.</p>
+						<p>When you are ready click the Run now button.To stop click the Stop all button</p>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<tbody>				
+								{% for i in 1..8 %}
+								<tr>
+									<td><label>Zone {{ i }}</label></td>
+									<td><div class="make-switch" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+									<input type="checkbox" name="manualZone{{ i }}onOff" id="manualZone{{ i }}OnOff"></div></td>
+									<td><input type="text" id="manualZoneDurationSlider{{ i }}" name="manualZoneDurationSlider{{ i }}" class="span2" value="" data-slider-min="0" data-slider-max="120" data-slider-step="1" data-slider-value="0" data-slider-orientation="horizontal" data-slider-selection="after"data-slider-tooltip="hide"></td>
+									<td><span id="manualZoneDurationBadge{{ i }}" class="badge"></span></td>
+								</tr>
+								<script type="text/javascript">
+									$( function() {
+										$('#manualZoneDurationSlider{{ i }}').slider().on('slide', function(ev){
+											$('#manualZoneDurationBadge{{ i }}').text(ev.value);
+										});
+									});
+								</script>								
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>	
+					<!-- Josh can you use disabled in the class of these two buttons when manual mode at top is off, remove when manual mode button is on-->
+					<div class="panel-footer"><button type="submit" id="manualRunSubmit" class="btn btn-success">Run now</button> <button type="submit" id="manualStopSubmit" class="btn btn-danger disabled">Stop all</button></div>
+				</form>
+			</div>
+{% endblock %}

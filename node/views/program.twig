@@ -1,0 +1,104 @@
+<form id="programForm" role="form" method="post" enctype="application/x-www-form-urlencoded">
+	<div class="panel-heading accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#program{{loop.index}}">
+		<h4 class="panel-title">{{ program.name }}<span class="label label-danger pull-right">Off</span></h4>
+	</div>
+	<div id="program{{ loop.index}}" class="panel-collapse collapse">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<input type="text" id="program{{ loop.index }}Name" name="program{{ loop.index }}Name" class="form-control" placeholder="Enter program name">
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<div class="make-switch" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+						<input type="checkbox" id="program{{ loop.index }}OnOff" name="program{{ loop.index }}OnOff">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<button type="button" class="btn btn-danger pull-right tip" data-container="body" data-toggle="popover" data-placement="auto top" data-trigger="hover" data-animation="true" data-content="Do you want this to delete this program."><span class="glyphicon glyphicon-remove"></span></button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<h5>Days to run</h5>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-1">
+					<div class="make-switch" data-text-label="Mon" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+						<input type="checkbox" id="program{{ loop.index }}Monday" name="program{{ loop.index }}Monday">
+					</div>&nbsp;
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-1">
+					<div class="make-switch" data-text-label="Tue" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+						<input type="checkbox" id="program{{ loop.index }}Tuesday" name="program{{ loop.index }}Tuesday">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-1">
+					<div class="make-switch" data-text-label="Wed" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+						<input type="checkbox" id="program{{ loop.index }}Wednesday" name="program{{ loop.index }}Wednesday">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-1">
+					<div class="make-switch" data-text-label="Thu" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+						<input type="checkbox" id="program{{ loop.index }}Thursday" name="program{{ loop.index }}Thursday">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-1">
+					<div class="make-switch" data-text-label="Fri" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+						<input type="checkbox" id="program{{ loop.index }}Friday" name="program{{ loop.index }}Friday">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-1">
+					<div class="make-switch" data-text-label="Sat" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+						<input type="checkbox" id="program{{ loop.index }}Saturday" name="program{{ loop.index }}Saturday">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-1">
+					<div class="make-switch" data-text-label="Sun" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
+						<input type="checkbox" id="program{{ loop.index }}Sunday" name="program{{ loop.index }}Sunday">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					&nbsp;
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<h5>Start times</h5>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<div class="input-group input-append bootstrap-timepicker">
+						<input  id="timepicker1" name="program{{ loop.index }} timepicker1" type="text" class="form-control input-small" data-minute-step="1">
+						<span class="input-group-addon add-on"><i class="glyphicon glyphicon-dashboard"></i></span>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<div class="input-group input-append bootstrap-timepicker">
+						<input  id="timepicker2" name="program{{ loop.index }} timepicker2" type="text" class="form-control input-small" data-minute-step="1" data-default-time="">
+						<span class="input-group-addon add-on"><i class="glyphicon glyphicon-dashboard"></i></span>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<div class="input-group input-append bootstrap-timepicker">
+						<input  id="timepicker3" name="program{{ loop.index }} timepicker3" type="text" class="form-control input-small" data-minute-step="1">
+						<span class="input-group-addon add-on"><i class="glyphicon glyphicon-dashboard"></i></span>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<div class="input-group input-append bootstrap-timepicker">
+						<input  id="timepicker4" name="program{{ loop.index }} timepicker4" type="text" class="form-control input-small" data-minute-step="1">
+						<span class="input-group-addon add-on"><i class="glyphicon glyphicon-dashboard"></i></span>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					&nbsp;
+				</div>
+			</div>
+			
+			<div class="row">
+				<button type="submit" name="formAction" value="add" class="btn btn-success" id="programFormSubmit">Save</button>
+				
+			</div>
+			
+		</div>
+	</div>
+</form>
