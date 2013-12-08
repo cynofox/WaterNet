@@ -18,47 +18,21 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-2">
-					<h5>Days to run</h5>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-1">
-					<div class="make-switch" data-text-label="Mon" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
-						<input type="checkbox" id="program{{ loop.index }}Monday" name="program{{ loop.index }}Monday">
-					</div>&nbsp;
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-1">
-					<div class="make-switch" data-text-label="Tue" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
-						<input type="checkbox" id="program{{ loop.index }}Tuesday" name="program{{ loop.index }}Tuesday">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-1">
-					<div class="make-switch" data-text-label="Wed" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
-						<input type="checkbox" id="program{{ loop.index }}Wednesday" name="program{{ loop.index }}Wednesday">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-1">
-					<div class="make-switch" data-text-label="Thu" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
-						<input type="checkbox" id="program{{ loop.index }}Thursday" name="program{{ loop.index }}Thursday">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-1">
-					<div class="make-switch" data-text-label="Fri" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
-						<input type="checkbox" id="program{{ loop.index }}Friday" name="program{{ loop.index }}Friday">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-1">
-					<div class="make-switch" data-text-label="Sat" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
-						<input type="checkbox" id="program{{ loop.index }}Saturday" name="program{{ loop.index }}Saturday">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-1">
-					<div class="make-switch" data-text-label="Sun" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
-						<input type="checkbox" id="program{{ loop.index }}Sunday" name="program{{ loop.index }}Sunday">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-3">
-					&nbsp;
-				</div>
+					<h5>Days to run
+					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Monday" name="program{{ loop.index }}Monday">
+					<label for="program{{ loop.index }}Monday">Monday</label>
+					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Tuesday" name="program{{ loop.index }}Tuesday">
+					<label for="program{{ loop.index }}Tuesday">Tuesday</label>
+					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Wednesday" name="program{{ loop.index }}Wednesday">
+					<label for="program{{ loop.index }}Wednesday">Wednesday</label>
+					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Thursday" name="program{{ loop.index }}Thursday">
+					<label for="program{{ loop.index }}Thursday">Thursday</label>
+					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Friday" name="program{{ loop.index }}Friday">
+					<label for="program{{ loop.index }}Friday">Friday</label>
+					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Saturday" name="program{{ loop.index }}Saturday">
+					<label for="program{{ loop.index }}Saturday">Saturday</label>
+					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Sunday" name="program{{ loop.index }}Sunday">
+					<label for="program{{ loop.index }}Sunday">Sunday</label></h5>
 			</div>
 			
 			<div class="row">
