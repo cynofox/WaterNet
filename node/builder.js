@@ -1,7 +1,9 @@
 var _ = require('lodash');
+var SStorage = require('./simple_storage').SStorage;
+var databaseLoader = new SStorage('data/');
 
-/* Temp database for system state */
-var database = {
+/* Default database when no database exists */
+var defaultDB = {
 	settings : {
 		expansions: 0,
 		allowConcurrentPrograms: false
@@ -60,6 +62,14 @@ var database = {
 	]
 	
 };
+var database;
+databaseLoader.load('database', function(data) {
+	database = data;
+	if(database === false) {
+		database = defaultDB;
+	}
+	databaseLoader.save('database', database);
+});
 
 /**
 	* Core data that applies to all pages
@@ -145,7 +155,7 @@ function processPost(pageName, request) {
 				enabled: false	
 			});
 		}
-		else if(request.body.forMAction == 'save') {
+		else if(request.body.formAction == 'save') {
 			
 		}
 	}
@@ -157,5 +167,7 @@ function processPost(pageName, request) {
 */
 exports.buildPage = function(pageName, request) {
 	processPost(pageName, request);
+	/* After processing, save the database */
+	databaseLoader.save('database', database);
 	return _.assign(getBaseData(pageName), {'menu': getMenu(pageName) }, {'menuSettings1': getMenuDDSettings1(pageName) }, {'menuSettings2': getMenuDDSettings2(pageName) });
 }

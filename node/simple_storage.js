@@ -1,5 +1,4 @@
 var crypto = require('crypto');
-var md5Sum = crypto.createHash('md5');
 var fs = require('fs');
 var path = require('path');
 
@@ -10,32 +9,43 @@ function SStorage(path) {
 	this.path = path;
 }
 
-function SStorage.prototype.load(id) {
+SStorage.prototype.load = function(id, callback) {
 	if(typeof(id) !== 'string') {
 		throw 'Expected string for id';
 	}
 	id = id.toLowerCase();
+	var md5Sum = crypto.createHash('md5');
 	md5Sum.update(id, 'utf8');
 	var name = md5Sum.digest('hex');
-	
+	var file = path.join(this.path, name + '.dat');
+	if(fs.existsSync(file)) {
+		var data = fs.readFileSync(file, {encoding: 'utf8'});
+		var decoded = JSON.parse(new Buffer(data, 'base64').toString());
+		console.log('Loaded', id, 'successfully');
+		callback(decoded);
+	} else {
+		console.log(file, 'has not been created yet');
+		callback(false);
+	}
 }
 
-function SStorage.prototype.store(id, object) {	
+SStorage.prototype.save = function(id, o) {	
 	if(typeof(id) !== 'string') {
 		throw 'Expected string for id';
 	}
 	id = id.toLowerCase();
+	var md5Sum = crypto.createHash('md5');
 	md5Sum.update(id, 'utf8');
 	var name = md5Sum.digest('hex');
-	var data = btoa(JSON.stringify(object));
+	var content = JSON.stringify(o);
+	var data = new Buffer(content).toString('base64');
 	var file = path.join(this.path, name + '.dat');
-	fs.writeFileSync(file, data, function(err) {
-		if(err) {
-			console.log(error);
-			return false;
-		}
-		return true;
-	});
+	var directory = path.dirname(file);
+	if(!fs.existsSync(directory)) {
+		fs.mkdirSync(directory);
+	}
+	fs.writeFileSync(file, data, 'utf8');	
+	console.log('Saved', id, 'successfully');
 }
 
 module.exports = {
