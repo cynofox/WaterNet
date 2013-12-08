@@ -1,6 +1,4 @@
 var _ = require('lodash');
-/* var nStore = require('nstore');
-var zones = nStore.new('data/zones.db', function(){}); */
 
 /* Temp database for system state */
 var database = {
@@ -24,7 +22,7 @@ var database = {
 	],
 	programs: [
 	{
-		name: 'Tunel House',
+		name: 'Tunnel House',
 		schedule: [ {
 			startTime: 0000,
 			duration: 0000,
