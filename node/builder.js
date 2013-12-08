@@ -40,25 +40,7 @@ var defaultDB = {
 		} ],
 		zones: [ 0, 1 ],
 		enabled: false			
-	},
-	/*{
-		name: 'Outside Vege Garden',
-		schedule: [ {
-		startTime: 0000,
-		duration: 0000,
-		daysEnabled: {
-		'monday': true,
-		'tuesday': true,
-		'wednesday': true,
-		'thursday': true,
-		'friday': true,
-		'saturday': true,						
-		'sunday': true,
-		}
-		} ],
-		zones: [ 0, 1 ],
-		enabled: false			
-	}*/
+	}
 	]
 	
 };
