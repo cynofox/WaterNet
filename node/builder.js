@@ -62,6 +62,40 @@ function getBaseData(pageName) {
 	state: database };
 }
 
+function applyPageToDatabase(pageName, data) {
+	function escapeRegExp(string){
+		return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+	}
+	function camelCase(input) {
+		return input.substring(0,1).toLowerCase() + input.substring(1);
+	}
+	function processValue(v,c,k) {
+		if(typeof v !== 'string') return c;
+		/* Unknown side-effects */
+		if(v === 'true') return true;
+		if(v === 'false') return false;
+		/* If the key is name and the value is empty, don't change it */
+		if((v == null || v == undefined || v.length == 0) && k == 'name') {
+			return c
+		}
+		return v;
+	}
+	var objPrefix = pageName;
+	if(objPrefix.indexOf('s', this.length - 1) !== -1) {
+		objPrefix = objPrefix.substring(0, objPrefix.length -1);
+	}
+	var regExp = new RegExp(escapeRegExp(objPrefix) + "s{0,1}([\\d]+)([a-zA-Z]+)");
+	_.forIn(data, function(value, key) {
+		if(regExp.test(key)) {
+			var match = key.match(regExp);
+			var index = parseInt(match[1]) - 1;
+			var name = camelCase(match[2]);
+			console.log('Applying Page', pageName,index,name,value);
+			database[pageName][index][name] = processValue(value, database[pageName][index][name], name);
+		}
+	});
+}
+
 /**
 	*
 */
@@ -86,38 +120,17 @@ function getMenuDDSettings2(pageName) {
 
 function processPost(pageName, request) {
 	console.log('Processing', pageName, request.body);
-	if(pageName == 'zones') {
-		if(request.body.formAction == 'save') {
-			for(var i = 0; i < database.zones.length; i++) {
-				var twigIndex = i + 1;
-				if(typeof request.body['zone' + twigIndex + 'Name'] == 'string') {
-					var newName = request.body['zone' + twigIndex + 'Name'];
-					if(newName != '') {
-						database.zones[i].name = newName;
-					}
-				}
-				if(typeof request.body['zone' + twigIndex + 'Enabled'] == 'string') {
-					if(request.body['zone' + twigIndex + 'Enabled'] == 'true') {
-						database.zones[i].enabled = true;
-						}else {
-						database.zones[i].enabled = false;
-					}
-				}
-				if(typeof request.body['zone' + twigIndex + 'Rain'] == 'string') {
-					if(request.body['zone' + twigIndex + 'Rain'] == 'true') {
-						database.zones[i].rainSensor = true;
-						}else {
-						database.zones[i].rainSensor = false;
-					}
-				}
-				if(typeof request.body['zone' + twigIndex + 'Notes'] == 'string') {
-					database.zones[i].notes = request.body['zone' + twigIndex + 'Notes'];
-				}
-			}
-		}
-	}
-	else if(pageName == 'programs') {
-		if(request.body.formAction == 'add') {
+	if(request.body.formAction == 'save') {		
+		applyPageToDatabase(pageName, request.body);
+	} else if(request.body.formAction == 'add') {
+		if(pageName == 'zones') {
+			database.zones.push( {
+				name: 'New Zone', 
+				enabled: false,
+				rainSensor: false,
+				notes: '' 
+			});			
+		}else if(pageName == 'programs') {
 			database.programs.push( {
 				name: 'New Program',
 				schedule: [ {
@@ -137,10 +150,7 @@ function processPost(pageName, request) {
 				enabled: false	
 			});
 		}
-		else if(request.body.formAction == 'save') {
-			
-		}
-	}
+	}	
 }
 
 
