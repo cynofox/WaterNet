@@ -7,15 +7,13 @@
 	<form id="programForm" role="form" method="post" enctype="application/x-www-form-urlencoded">
 		<div class="panel-body">
 			{% if state.programs is empty %}
-				<p>No programs exist, add one with the Add button below.</p>
+			<p>No programs exist, add one with the Add button below.</p>
 			{% else %}
-				<div class="panel-group" id="accordion">
-					<div class="panel panel-default">
-							{% for program in state.programs %}
-							{% include 'program.twig' %}
-							{% endfor %}
-					</div>			
-				</div>
+			<div class="panel-group" id="accordion">
+				{% for program in state.programs %}
+				{% include 'program.twig' %}
+				{% endfor %}
+			</div>
 			{% endif %}
 		</div>
 		<div class="panel-footer">
@@ -24,5 +22,4 @@
 		</div>
 	</form>
 </div>
-
 {% endblock %}
