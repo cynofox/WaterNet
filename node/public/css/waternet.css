@@ -601,10 +601,10 @@ input[type="checkbox"].checkbox + label {
     background-color: #b94a48;
     
     /*label styling*/
-    padding: 4px 6px;
+    padding: 6px 12px;
     font-size: 14px;
     font-weight: bold;
-    line-height: 16px;
+    line-height: 1.428571429;
     color: #ffffff;
     vertical-align: baseline;
     white-space: nowrap;
