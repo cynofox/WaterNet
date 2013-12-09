@@ -69,14 +69,19 @@ function applyPageToDatabase(pageName, data) {
 	function camelCase(input) {
 		return input.substring(0,1).toLowerCase() + input.substring(1);
 	}
-	function processValue(v,c,k) {
+	/* Value, Current Value, Key, Type */
+	function processValue(v,c,k,t) {
 		if(typeof v !== 'string') return c;
-		/* Unknown side-effects */
-		if(v === 'true') return true;
-		if(v === 'false') return false;
-		/* If the key is name and the value is empty, don't change it */
-		if((v == null || v == undefined || v.length == 0) && k == 'name') {
-			return c
+		if(t == 'textarea') {
+			return v;
+		}else if(t == 'checkbox') {
+			if(v == 'on') {
+				return true;
+			}
+			return false;
+		}else if(t == 'text' && k == 'name') {
+			if(v == null || v == undefined || v.length ==0) return c;
+			return v;
 		}
 		return v;
 	}
@@ -84,14 +89,28 @@ function applyPageToDatabase(pageName, data) {
 	if(objPrefix.indexOf('s', this.length - 1) !== -1) {
 		objPrefix = objPrefix.substring(0, objPrefix.length -1);
 	}
-	var regExp = new RegExp(escapeRegExp(objPrefix) + "s{0,1}([\\d]+)([a-zA-Z]+)");
+	var regExp = new RegExp("^:?" + escapeRegExp(objPrefix) + "s{0,1}([\\d]+)([a-zA-Z]+)");
 	_.forIn(data, function(value, key) {
+		var match, index, name;
+		// Process regex
 		if(regExp.test(key)) {
-			var match = key.match(regExp);
-			var index = parseInt(match[1]) - 1;
-			var name = camelCase(match[2]);
-			console.log('Applying Page', pageName,index,name,value);
-			database[pageName][index][name] = processValue(value, database[pageName][index][name], name);
+			match = key.match(regExp);
+			index = parseInt(match[1]) - 1;
+			name = camelCase(match[2]);
+		} else return;
+		// If this is not a type definition
+		if(key.substring(0,1) != ':') {
+			var t = "text";
+			if(data[':' + key]) t = data[':' + key];
+			database[pageName][index][name] = processValue(value, database[pageName][index][name], name, t);			
+			console.log('Applying Page', pageName,index,name,value, database[pageName][index][name]);
+		}else if(key.substring(0,1) == ':' && value == 'checkbox') {
+			// If this IS a type definition and it's a checkbox and the data is missing
+			if(!data[key.substring(1)]) {
+				// Set it to false
+				database[pageName][index][name] = false;
+				console.log('Applying empty checkbox', pageName,index,name,value, database[pageName][index][name]);
+			}
 		}
 	});
 }

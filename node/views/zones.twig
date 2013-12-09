@@ -23,34 +23,14 @@
 										<div class="col-xs-12 col-sm-12 col-md-2">
 											<h5>Enabled <span class="glyphicon glyphicon-info-sign tip" data-container="body" data-toggle="popover" data-placement="auto top" data-trigger="hover" data-animation="true" data-content="Do you want this zone to run? Note: you must have a solenoid valve installed."></span></h5>
 											<div class="make-switch" data-on-label="<strong>On</strong>" data-off-label="<strong>Off</strong>">
-												<input type="checkbox" {% if zone.enabled %} checked="checked" {% endif %} id="zone{{ loop.index }}OnOff" />
-												<input type="hidden" name="zone{{loop.index}}Enabled" id="zone{{loop.index}}Enabled" value="{% if zone.enabled %}true{% else %}false{% endif %}" />
-												<script type="text/javascript">
-													$(function() {
-														$('#zone{{ loop.index }}OnOff').change(function() {
-															$('[name=zone{{loop.index}}Enabled]').val(
-																$('#zone{{ loop.index }}OnOff').first()[0].checked
-															);
-														});
-													});
-												</script>
+												<input type="checkbox" {% if zone.enabled %} checked="checked" {% endif %} name="zone{{ loop.index }}Enabled" />
 											</div>
 										</div>
 										<div class="clearfix visible-sm"></div>
 										<div class="col-xs-12 col-sm-12 col-md-2">
 											<h5>Rain sensor <span class="glyphicon glyphicon-info-sign tip" data-container="body" data-toggle="popover" data-placement="auto top" data-trigger="hover" data-animation="true" data-content="Do you want this to run this zone when it's raining? Note: you must have a rain sensor installed."></span></h5>
 											<div class="make-switch" data-on-label="<strong>Yes</strong>" data-off-label="<strong>No</strong>">
-												<input type="checkbox" {% if zone.rainSensor %} checked="checked" {% endif %} id="zone{{ loop.index }}Rain" />
-												<input type="hidden" name="zone{{loop.index}}RainSensor" id="zone{{loop.index}}RainValue" value="{% if zone.rainSensor %}true{% else %}false{% endif %}" />
-												<script type="text/javascript">
-													$(function() {
-														$('#zone{{ loop.index }}Rain').change(function() {
-															$('[name=zone{{loop.index}}RainSensor]').val(
-																$('#zone{{ loop.index }}Rain').first()[0].checked
-															);
-														});
-													});
-												</script>
+												<input type="checkbox" {% if zone.rainSensor %} checked="checked" {% endif %} name="zone{{ loop.index }}RainSensor" />
 											</div>
 										</div>
 										<div class="clearfix visible-sm"></div>
