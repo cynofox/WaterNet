@@ -89,7 +89,7 @@ function applyPageToDatabase(pageName, data) {
 	if(objPrefix.indexOf('s', this.length - 1) !== -1) {
 		objPrefix = objPrefix.substring(0, objPrefix.length -1);
 	}
-	var regExp = new RegExp("^:?" + escapeRegExp(objPrefix) + "s{0,1}([\\d]+)([a-zA-Z]+)");
+	var regExp = new RegExp("^:?" + escapeRegExp(objPrefix) + "s{0,1}([\\d]+)([a-zA-Z0-9]+)");
 	_.forIn(data, function(value, key) {
 		var match, index, name;
 		// Process regex

@@ -6,11 +6,8 @@ $(function(){
 
 /* timepicker */
 $(function(){
-	
-	$('#timepicker1').timepicker();
-	$('#timepicker2').timepicker();
-	$('#timepicker3').timepicker();
-	$('#timepicker4').timepicker();
+	/* Select all the timepickers and apply the code */
+	$('.bootstrap-timepicker input').timepicker();
 });
 /* /timepicker */	
 
