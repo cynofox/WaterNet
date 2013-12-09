@@ -169,7 +169,14 @@ function processPost(pageName, request) {
 				enabled: false	
 			});
 		}
-	}	
+	} else if(request.body['delete']) {
+		console.log(pageName, '#>>', database[pageName]);
+		var idx = parseInt(request.body['delete'])-1;
+		if(database[pageName][idx]) {
+			console.log('Deleting', pageName, '[', idx, ']');
+			database[pageName].splice(idx,1);
+		}
+	}
 }
 
 

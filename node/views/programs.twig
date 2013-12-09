@@ -6,14 +6,17 @@
 	</div>
 	<form id="programForm" role="form" method="post" enctype="application/x-www-form-urlencoded">
 		<div class="panel-body">
-			<button type="submit" name="formAction" value="add" class="btn btn-success" id="programFormSubmit"><span class="glyphicon glyphicon-plus" data-container="body" data-toggle="popover" data-placement="auto top" data-trigger="hover" data-animation="true" data-content="Add a program."></span> Add</button>		
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-default">
 					{% for program in state.programs %}
 					{% include 'program.twig' %}
 					{% endfor %}
-				</div>
+				</div>			
 			</div>
+		</div>
+		<div class="panel-footer">
+			<button type="submit" name="formAction" value="save" class="btn btn-success" id="programFormSubmit"><span class="glyphicon glyphicon-floppy-disk" data-container="body" data-toggle="popover" data-placement="auto top" data-trigger="hover" data-animation="true" data-content="Save programs."></span> Save</button>
+			<button type="submit" name="formAction" value="add" class="btn btn-success" id="programFormAdd"><span class="glyphicon glyphicon-plus" data-container="body" data-toggle="popover" data-placement="auto top" data-trigger="hover" data-animation="true" data-content="Add a program."></span> Add</button>
 		</div>
 	</form>
 </div>
