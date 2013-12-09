@@ -7,7 +7,7 @@ $(function(){
 /* timepicker */
 $(function(){
 	/* Select all the timepickers and apply the code */
-	$('.bootstrap-timepicker input').timepicker();
+	$('.bootstrap-timepicker input[type=text]').timepicker();
 });
 /* /timepicker */	
 
