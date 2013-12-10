@@ -28,19 +28,19 @@
 			<div class="row spaced">
 				<div class="col-xs-12 col-sm-12 col-md-10">
 					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Monday" name="program{{ loop.index }}Monday" {% if program.monday %} checked="checked" {% endif %}>
-					<label class="btn btn-danger" for="program{{ loop.index }}Monday">Monday</label>
+					<label class="btn btn-danger weekday" for="program{{ loop.index }}Monday">Monday</label>
 					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Tuesday" name="program{{ loop.index }}Tuesday" {% if program.tuesday %} checked="checked" {% endif %}>
-					<label class="btn btn-danger" for="program{{ loop.index }}Tuesday">Tuesday</label>
+					<label class="btn btn-danger weekday" for="program{{ loop.index }}Tuesday">Tuesday</label>
 					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Wednesday" name="program{{ loop.index }}Wednesday" {% if program.wednesday %} checked="checked" {% endif %}>
-					<label class="btn btn-danger" for="program{{ loop.index }}Wednesday">Wednesday</label>
+					<label class="btn btn-danger weekday" for="program{{ loop.index }}Wednesday">Wednesday</label>
 					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Thursday" name="program{{ loop.index }}Thursday" {% if program.thursday %} checked="checked" {% endif %}>
-					<label class="btn btn-danger" for="program{{ loop.index }}Thursday">Thursday</label>
+					<label class="btn btn-danger weekday" for="program{{ loop.index }}Thursday">Thursday</label>
 					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Friday" name="program{{ loop.index }}Friday" {% if program.friday %} checked="checked" {% endif %}>
-					<label class="btn btn-danger" for="program{{ loop.index }}Friday">Friday</label>
+					<label class="btn btn-danger weekday" for="program{{ loop.index }}Friday">Friday</label>
 					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Saturday" name="program{{ loop.index }}Saturday" {% if program.saturday %} checked="checked" {% endif %}>
-					<label class="btn btn-danger" for="program{{ loop.index }}Saturday">Saturday</label>
+					<label class="btn btn-danger weekday" for="program{{ loop.index }}Saturday">Saturday</label>
 					<input type="checkbox" class="checkbox" id="program{{ loop.index }}Sunday" name="program{{ loop.index }}Sunday" {% if program.sunday %} checked="checked" {% endif %}>
-					<label class="btn btn-danger" for="program{{ loop.index }}Sunday">Sunday</label>
+					<label class="btn btn-danger weekday" for="program{{ loop.index }}Sunday">Sunday</label>
 				</div>
 			</div>
 			<div class="row">			
@@ -49,7 +49,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-3">
+				<div class="col-xs-12 col-sm-6 col-md-3">
 					<div class="input-group input-append bootstrap-timepicker">
 						<span class="input-group-addon"><input type="checkbox" class="checkbox" id="program{{ loop.index }}timepicker1_enabled" name="program{{ loop.index }}timepicker1_enabled" {% if program.timepicker1_enabled %} checked="checked" {% endif %} /><label class="btn btn-danger" for="program{{ loop.index }}timepicker1_enabled"></label></span>
 						<input id="program{{ loop.index }}timepicker1" name="program{{ loop.index }}timepicker1" type="text" class="form-control input-small" data-minute-step="10" data-default-time="{{program.timepicker1}}">
@@ -57,7 +57,7 @@
 					</div>
 				</div>
 				
-				<div class="col-xs-12 col-sm-12 col-md-3">
+				<div class="col-xs-12 col-sm-6 col-md-3">
 					<div class="input-group input-append bootstrap-timepicker">
 						<span class="input-group-addon"><input type="checkbox" class="checkbox" id="program{{ loop.index }}timepicker2_enabled" name="program{{ loop.index }}timepicker2_enabled" {% if program.timepicker2_enabled %} checked="checked" {% endif %} /><label class="btn btn-danger" for="program{{ loop.index }}timepicker2_enabled"></label></span>
 						<input id="program{{ loop.index }}timepicker2" name="program{{ loop.index }}timepicker2" type="text" class="form-control input-small" data-minute-step="10" data-default-time="{{program.timepicker2}}">
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 				
-				<div class="col-xs-12 col-sm-12 col-md-3">
+				<div class="col-xs-12 col-sm-6 col-md-3">
 					<div class="input-group input-append bootstrap-timepicker">
 						<span class="input-group-addon"><input type="checkbox" class="checkbox" id="program{{ loop.index }}timepicker3_enabled" name="program{{ loop.index }}timepicker3_enabled" {% if program.timepicker3_enabled %} checked="checked" {% endif %} /><label class="btn btn-danger" for="program{{ loop.index }}timepicker3_enabled"></label></span>
 						<input id="program{{ loop.index }}timepicker3" name="program{{ loop.index }}timepicker3" type="text" class="form-control input-small" data-minute-step="10" data-default-time="{{program.timepicker3}}">
@@ -73,7 +73,7 @@
 					</div>
 				</div>
 				
-				<div class="col-xs-12 col-sm-12 col-md-3">
+				<div class="col-xs-12 col-sm-6 col-md-3">
 					<div class="input-group input-append bootstrap-timepicker">
 						<span class="input-group-addon"><input type="checkbox" class="checkbox" id="program{{ loop.index }}timepicker4_enabled" name="program{{ loop.index }}timepicker4_enabled" {% if program.timepicker4_enabled %} checked="checked" {% endif %} /><label class="btn btn-danger" for="program{{ loop.index }}timepicker4_enabled"></label></span>
 						<input id="program{{ loop.index }}timepicker4" name="program{{ loop.index }}timepicker4" type="text" class="form-control input-small" data-minute-step="10" data-default-time="{{program.timepicker4}}">

@@ -594,6 +594,11 @@ width: 90px;
 /* /time picker */
 
 /* checkbox */
+
+.weekday {
+	min-width:100px;
+}
+
 input[type="checkbox"].checkbox {
     display: none;
 }
