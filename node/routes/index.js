@@ -28,4 +28,4 @@ function defaultHandler(name, url, object) {
 
 module.exports = defaultHandler('index', '/').defaultHandler('programs')
 		.defaultHandler('manual').defaultHandler('zones')
-		.defaultHandler('logs').defaultHandler('settings').finish();
+		.defaultHandler('logs').defaultHandler('help').defaultHandler('settings').finish();

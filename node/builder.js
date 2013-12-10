@@ -123,7 +123,8 @@ function getMenu(pageName) {
 	{ key: 'index', data : { name: 'Home', url : '/' } },
 	{ key: 'programs', data : { name: 'Programs', url : '/programs' } },
 	{ key: 'manual', data : { name: 'Manual', url : '/manual' } },
-	{ key: 'logs', data : { name: 'Logs', url : '/logs' } }	
+	{ key: 'logs', data : { name: 'Logs', url : '/logs' } },
+	{ key: 'help', data : { name: 'Help', url : '/help' } }
 	];
 }
 function getMenuDDSettings1(pageName) {
